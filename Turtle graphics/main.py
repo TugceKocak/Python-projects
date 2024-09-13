@@ -47,7 +47,32 @@ def random_color():
     tup=(r,g,b)
     return tup
 
-draw_spirograph(20,70)
+def draw_hirstcolor():
+    # color_list=[]
+    # colors = colorgram.extract('hirst_image.jpg', 25)
+    # for color in colors:
+    #     tup=(color.rgb[0], color.rgb[1], color.rgb[2])
+    #     color_list.append(tup)
+    # print(color_list)
+
+    # color_list is derived from the color palette in the hirst image
+    color_list = [(199, 175, 117), (124, 36, 24), (210, 221, 213), (168, 106, 57), (222, 224, 227), (186, 158, 53),
+                  (6, 57, 83), (109, 67, 85), (113, 161, 175), (22, 122, 174), (64, 153, 138), (39, 36, 36),
+                  (76, 40, 48), (9, 67, 47), (90, 141, 53), (181, 96, 79), (132, 40, 42), (210, 200, 151),
+                  (141, 171, 155), (179, 201, 186), (172, 153, 159), (212, 183, 177), (176, 198, 203)]
+
+    timmy.hideturtle()
+    timmy.penup()
+    timmy.setposition(-250, -250)
+
+    for i in range(10):
+        for j in range(10):
+            timmy.dot(20, random.choice(color_list))
+            timmy.fd(50)
+        x, y = timmy.pos()
+        timmy.setposition(-250, y + 50)
+
+draw_hirstcolor()
 screen=Screen()
 screen.exitonclick()
 
