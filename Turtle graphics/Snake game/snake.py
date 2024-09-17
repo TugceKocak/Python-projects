@@ -8,10 +8,13 @@ RIGHT=0
 class Snake:
     def __init__(self):
         self.snake_parts = []
+        self.create()
+        self.head=self.snake_parts[0]
+
+    def create(self):
         for i in range(3):
             self.add_snake_part((-20*i,0))
 
-        self.head=self.snake_parts[0]
     def add_snake_part(self,position):
         tim = Turtle("square")
         tim.color('white')
@@ -45,3 +48,9 @@ class Snake:
         if self.head.heading() != RIGHT:
             self.head.setheading(LEFT)
 
+    def reset(self):
+        for part in self.snake_parts:
+            part.hideturtle()
+        self.snake_parts.clear()
+        self.create()
+        self.head=self.snake_parts[0]
